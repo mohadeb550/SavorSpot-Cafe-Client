@@ -14,10 +14,10 @@ export default function Navbar() {
 
 
   const navLinks = <>
-   <li ><NavLink className={({isActive})=> isActive? ' font-semibold bg-orange-600 text-white/95 px-3 py-[3px] rounded ': '' } to='/'> Home </NavLink></li>
-   <li ><NavLink className={({isActive})=> isActive? ' font-semibold bg-orange-600 text-white/95 px-3 py-[3px] rounded ': '' } to='/add-product'> Add Product </NavLink></li>
-   <li ><NavLink className={({isActive})=> isActive? ' font-semibold bg-orange-600 text-white/95 px-3 py-[3px] rounded ': '' } to='/my-cart'> My Cart </NavLink></li>
-   <li ><NavLink className={({isActive})=> isActive? ' font-semibold bg-orange-600 text-white/95 px-3 py-[3px] rounded ': '' } to='/login'> Login </NavLink></li>
+   <li ><NavLink className={({isActive})=> isActive? ' font-semibold bg-lime-600 text-white/95 px-3 py-[3px] rounded ': '' } to='/'> Home </NavLink></li>
+   <li ><NavLink className={({isActive})=> isActive? ' font-semibold bg-lime-600 text-white/95 px-3 py-[3px] rounded ': '' } to='/add-product'> All Food Items </NavLink></li>
+   <li ><NavLink className={({isActive})=> isActive? ' font-semibold bg-lime-600 text-white/95 px-3 py-[3px] rounded ': '' } to='/my-cart'> Blog </NavLink></li>
+   <li ><NavLink className={({isActive})=> isActive? ' font-semibold bg-lime-600 text-white/95 px-3 py-[3px] rounded ': '' } to='/sign-up'> Sign Up </NavLink></li>
   
   </>
 
@@ -34,7 +34,7 @@ export default function Navbar() {
     }
 
   return (
-    <div className={`navbar bg-base-100 max-w-[1300px] mx-auto flex justify-between `}>
+    <div className={`navbar bg-base-100 max-w-[1300px] mx-auto flex justify-between md:mt-3`}>
   <div className="navbar-start z-50" data-aos="fade-right">
     <div className="dropdown z-50">
       <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -47,8 +47,8 @@ export default function Navbar() {
 
     </div>
     <div className="flex items-center gap-1">
-    <img src='/pngwing.com (3).png' className="w-9 md:w-12 lg:w-16"/>
-    <p className="text-base  md:text-xl lg:text-2xl font-semibold text-red-600 font-play"> Brand<span className="text-orange-500">Shop</span> </p>
+    <img src='/pngwing.com (14).png' className="w-9 md:w-12 lg:w-16"/>
+    <p className="text-[18px]  md:text-xl lg:text-2xl font-semibold text-lime-600 font-play"> SavorSpot<span className="text-lime-500">Cafe</span> </p>
     </div>
   </div>
   <div className="navbar-center hidden lg:flex">
@@ -60,16 +60,17 @@ export default function Navbar() {
 
   <div className="dropdown dropdown-end flex items-center justify-center gap-2 z-50" data-aos ="fade-left">
     
-        {!currentUser && <Link to='/login'><button className={`font-semibold  text-sm md:text-[16px] p-1 px-3 rounded bg-gray-50 hover:bg-gray-100`}> Login </button></Link>}
+        {!currentUser && <Link to='/login'><button className={`font-semibold  text-sm md:text-[16px] p-1 px-3 rounded bg-gray-50 hover:bg-gray-100 `}> Login </button></Link>}
         
-        <div className="z-30 lg:w-10 rounded-full p-[2px] border border-gray-500 mr-2">
-          <img tabIndex={0} src={currentUser?.photoURL || '/user-black.png' } className="dropdown w-7 md:w-9 cursor-pointer rounded-full" />
+        <div className="z-30 lg:w-10 rounded-full p-[2px] mr-2">
+          {currentUser && <img tabIndex={0} src={currentUser?.photoURL || 'https://i.ibb.co/Ttgtb82/pngwing-com-15.png' } className="dropdown w-9 md:w-9 cursor-pointer rounded-full border border-lime-500 p-[1px]" />}
 
           {currentUser && 
-         <ul tabIndex={0} className={`dropdown-content p-2 shadow bg-base-100 rounded w-52  `}>
-          {currentUser && <li className="font-semibold text-sm border p-2 rounded text-orange-500 flex items-center gap-2"> {currentUser?.displayName || 'User'}  <img tabIndex={0} src={currentUser?.photoURL || '/user-black.png' } className="w-7 md:w-8 rounded-full" /></li>}
-
-         <li className="cursor-pointer transition-all p-1 rounded " onClick={()=> signOut() }> Log out</li> 
+         <ul tabIndex={0} className={`dropdown-content p-2 shadow bg-base-100 rounded w-52 font-play `}>
+          {currentUser && <li className="font-semibold border p-2 rounded text-lime-600 flex items-center gap-2"> {currentUser?.displayName || 'User'}  <img tabIndex={0} src={currentUser?.photoURL || 'https://i.ibb.co/Ttgtb82/pngwing-com-15.png' } className="w-7 md:w-8 rounded-full" /></li>}
+            
+          <li className="font-semibold border p-2 rounded text-black/60 text-sm flex items-center gap-2 "> {currentUser?.email}  </li>
+         <li className="cursor-pointer transition-all p-1 rounded hover:underline" onClick={()=> signOut() }> Log out</li> 
 
         </ul>}
         </div>
