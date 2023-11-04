@@ -35,7 +35,7 @@ export default function Navbar() {
 
   return (
     <div className={`navbar bg-base-100 max-w-[1300px] mx-auto flex justify-between md:mt-3`}>
-  <div className="navbar-start z-50" data-aos="fade-right">
+  <div className="navbar-start z-50" >
     <div className="dropdown z-50">
       <label tabIndex={0} className="btn btn-ghost lg:hidden">
         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
@@ -69,7 +69,11 @@ export default function Navbar() {
          <ul tabIndex={0} className={`dropdown-content p-2 shadow bg-base-100 rounded w-52 font-play `}>
           {currentUser && <li className="font-semibold border p-2 rounded text-lime-600 flex items-center gap-2"> {currentUser?.displayName || 'User'}  <img tabIndex={0} src={currentUser?.photoURL || 'https://i.ibb.co/Ttgtb82/pngwing-com-15.png' } className="w-7 md:w-8 rounded-full" /></li>}
             
-          <li className="font-semibold border p-2 rounded text-black/60 text-sm flex items-center gap-2 "> {currentUser?.email}  </li>
+         <Link> <li className="font-semibold border p-2 transition-all rounded bg-lime-600 hover:bg-lime-700 text-white/90 text-sm flex items-center gap-2 "> My Added Foods  </li></Link>
+
+         <Link to='/add-food'> <li className="font-semibold border p-2 transition-all rounded bg-lime-600 hover:bg-lime-700 text-white/90 text-sm flex items-center gap-2 "> Add Food  </li></Link>
+
+         <Link> <li className="font-semibold border p-2 transition-all rounded bg-lime-600 hover:bg-lime-700 text-white/90 text-sm flex items-center gap-2 "> My Ordered Foods  </li></Link>
          <li className="cursor-pointer transition-all p-1 rounded hover:underline" onClick={()=> signOut() }> Log out</li> 
 
         </ul>}
