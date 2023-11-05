@@ -69,7 +69,7 @@ export default function Navbar() {
          <ul tabIndex={0} className={`dropdown-content p-2 shadow bg-base-100 rounded w-52 font-play `}>
           {currentUser && <li className="font-semibold border p-2 rounded text-lime-600 flex items-center gap-2"> {currentUser?.displayName || 'User'}  <img tabIndex={0} src={currentUser?.photoURL || 'https://i.ibb.co/Ttgtb82/pngwing-com-15.png' } className="w-7 md:w-8 rounded-full" /></li>}
             
-         <Link> <li className="font-semibold border p-2 transition-all rounded bg-lime-600 hover:bg-lime-700 text-white/90 text-sm flex items-center gap-2 "> My Added Foods  </li></Link>
+         <Link to='/my-added-foods'> <li className="font-semibold border p-2 transition-all rounded bg-lime-600 hover:bg-lime-700 text-white/90 text-sm flex items-center gap-2 "> My Added Foods  </li></Link>
 
          <Link to='/add-food'> <li className="font-semibold border p-2 transition-all rounded bg-lime-600 hover:bg-lime-700 text-white/90 text-sm flex items-center gap-2 "> Add Food  </li></Link>
 
