@@ -7,6 +7,7 @@ import SignUp from "../Pages/SignUp";
 import AddFood from "../Pages/AddFood";
 import MyAddedFoods from "../Components/MyAddedFoods";
 import UpdateFood from "../Components/UpdateFood";
+import AllFoods from "../Pages/AllFoods";
 
 
 
@@ -21,7 +22,8 @@ import UpdateFood from "../Components/UpdateFood";
         {path:'/login', element: <Login/>},
         {path: '/add-food', element: <AddFood/>},
         {path: '/my-added-foods', element: <MyAddedFoods/>},
-        {path: '/update-food/:id', loader: ({params})=> fetch(`http://localhost:5000/single-food/${params.id}`) , element: <UpdateFood/>}
+        {path: '/update-food/:id', loader: ({params})=> fetch(`http://localhost:5000/single-food/${params.id}`) , element: <UpdateFood/>},
+        {path: '/all-foods', element: <AllFoods/>}
     ]}
   
   ]);
