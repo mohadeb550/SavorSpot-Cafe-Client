@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 
 export default function FoodCard({food }) {
 
- const {_id, foodName, price, images, country, quantity, description, addedUserEmail, category} = food;
+ const {_id, foodName, price, images, quantity, category} = food;
 
   return (
     <div className="block rounded w-full bg-white shadow-xl dark:bg-neutral-700 font-play">
    <div className="p-6 pb-4 flex items-center justify-center">
-   <img className="rounded-t-lg p-2 border-b w-72 h-72 object-cover"  src={images[0].original || images[1].original} />
+   <img className="rounded-lg border-b w-72 h-72 object-cover"  src={images[0].original || images[1].original} />
    </div>
   
   <div className="p-6 pt-0">
@@ -24,7 +24,7 @@ export default function FoodCard({food }) {
 
    <div className="flex gap-3 flex-grow">
 
-    <Link to={`/food-details/${_id}/${_id}`} className="w-full"> <button className="bg-lime-600 py-[5px] px-8 text-white rounded font-semibold transition-all hover:bg-lime-700 text-sm md:text-base w-full"> See Details </button></Link>
+    <Link to={`/food-details/${_id}`} className="w-full"> <button className="bg-lime-600 py-[5px] px-8 text-white rounded font-semibold transition-all hover:bg-lime-700 text-sm md:text-base w-full"> See Details </button></Link>
   
  
    </div>

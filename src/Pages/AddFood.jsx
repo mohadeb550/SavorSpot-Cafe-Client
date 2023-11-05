@@ -48,10 +48,11 @@ export default function AddFood() {
         const country = form.country.value;
         const description = form.description.value;
         const addedUserEmail = currentUser.email;
+        const madeBy = currentUser.displayName;
         const ordered = 0;
 
 
-        addRequest({ foodName, category, price, images, country, quantity, description, addedUserEmail, ordered})
+        addRequest({ foodName, category, price, images, country, quantity, description, madeBy , addedUserEmail, ordered})
         .then(data => {
           if(data.data.insertedId){
             toast.success('Food Added Successfully!')

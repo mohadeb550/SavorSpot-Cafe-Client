@@ -8,6 +8,9 @@ import AddFood from "../Pages/AddFood";
 import MyAddedFoods from "../Components/MyAddedFoods";
 import UpdateFood from "../Components/UpdateFood";
 import AllFoods from "../Pages/AllFoods";
+import FoodDetails from "../Components/FoodDetails";
+import OrderPage from "../Components/PurchasePage";
+import PurchasePage from "../Components/PurchasePage";
 
 
 
@@ -23,7 +26,9 @@ import AllFoods from "../Pages/AllFoods";
         {path: '/add-food', element: <AddFood/>},
         {path: '/my-added-foods', element: <MyAddedFoods/>},
         {path: '/update-food/:id', loader: ({params})=> fetch(`http://localhost:5000/single-food/${params.id}`) , element: <UpdateFood/>},
-        {path: '/all-foods', element: <AllFoods/>}
+        {path: '/all-foods', element: <AllFoods/>},
+        {path: '/food-details/:id', element: <FoodDetails/>},
+        {path: '/purchase-page/:id', loader: ({params})=> fetch(`http://localhost:5000/single-food/${params.id}`), element: <PurchasePage/>},
     ]}
   
   ]);
