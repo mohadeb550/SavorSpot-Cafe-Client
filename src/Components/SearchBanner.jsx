@@ -2,7 +2,7 @@
 export default function SearchBanner({handleSearch }) {
 
   return (
-   <div className="hero h-[200px] lg:h-[300px]" style={{backgroundImage: 'url(https://i.ibb.co/qJj0F4K/elevated-view-fresh-raw-tagliatelle-pasta-with-tomato-garlic-black-pepper-white-plank.jpg)'}}>
+   <div className="hero h-[200px] lg:h-[300px] mb-3 md:mb-8 font-play" style={{backgroundImage: 'url(https://i.ibb.co/qJj0F4K/elevated-view-fresh-raw-tagliatelle-pasta-with-tomato-garlic-black-pepper-white-plank.jpg)'}}>
   <div className="hero-overlay bg-opacity-50"></div>
   <div className="hero-content text-center text-neutral-content">
     <div className="max-w-4xl space-y-2 lg:space-y-5">
@@ -29,7 +29,3 @@ export default function SearchBanner({handleSearch }) {
 </div>
   )
 }
-
-
-
-// https://i.ibb.co/P5Bx0Tw/different-ingredients-composition-with-copy-space.jpg
