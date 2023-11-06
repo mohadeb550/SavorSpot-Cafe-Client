@@ -59,12 +59,14 @@ const PurchasePage = () => {
             const ordered = parseInt(previousOrdered) + parseInt(buyerQuantity);
             const mainFoodId = _id;
             const buyingDate = currentDate;
+            const orderedEmail = currentUser.email;
+            const userQuantity = parseInt(buyerQuantity);
             
             updateQuantity({quantity, ordered})
             .then(data => {
                   if(data.data.modifiedCount > 0){
 
-                    addOrder({ mainFoodId,  foodName, category, price, images, madeBy , addedUserEmail, ordered, buyingDate })
+                    addOrder({ mainFoodId,  foodName, category, price, images, madeBy , addedUserEmail, orderedEmail, ordered, buyingDate, userQuantity })
                     .then(data => {
                         if(data.data.modifiedCount > 0 || data.data.upsertedCount > 0){
                             Swal.fire('Order Placed Successfully',

@@ -1,7 +1,5 @@
 
-import toast from "react-hot-toast";
-import { RxCross2} from "react-icons/rx";
-import { useMutation, useQuery } from "@tanstack/react-query";
+import {  useQuery } from "@tanstack/react-query";
 import useAuth from "../Hooks/useAuth";
 import useAxios from "../Hooks/useAxios";
 import { Link } from "react-router-dom";
@@ -15,7 +13,7 @@ export default function MyAddedFoods() {
   const axios = useAxios();
 
 
-  const { data: foods , isLoading , refetch } = useQuery({
+  const { data: foods , isLoading} = useQuery({
     queryKey: ['myAddedFoods'],
     queryFn : async () => {
       const data = await axios.get(`/my-added-foods?email=${currentUser.email}`);
@@ -23,33 +21,12 @@ export default function MyAddedFoods() {
     }
   })
 
-  // const { mutateAsync: removeItem } = useMutation({
-  //   mutationKey : ['removeItem'],
-  //   mutationFn : async (id) => {
-  //    return axios.delete(`http://localhost:5000/item/${id}`);
-  //   }
-  // })
-
-
-
-
-  //   const handleDeleteItem = (id) => {
-
-  //       removeItem(id)
-  //      .then(axData => {
-  //       if(axData.data.deletedCount > 0){
-  //         toast.success('Item Removed!')
-  //         refetch();
-  //       }
-  //      }).catch(error => toast.error('Something went wrong!')) 
-
-  //   }
 
   return (
    <section className="max-w-[1300px] mx-auto px-4 my-2 md:my-6 lg:my-10 mb-10"> 
 
    <div className="flex justify-center items-center mb-6">
-   <h2 className="text-2xl md:text-3xl font-extrabold text-lime-600"> Your Added Foods </h2>
+   <h2 className="text-2xl md:text-3xl font-extrabold text-lime-600 font-play"> Your Added Foods </h2>
    </div>
 
 

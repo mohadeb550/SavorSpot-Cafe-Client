@@ -73,7 +73,7 @@ export default function Navbar() {
 
          <Link to='/add-food'> <li className="font-semibold border p-2 transition-all rounded bg-lime-600 hover:bg-lime-700 text-white/90 text-sm flex items-center gap-2 "> Add Food  </li></Link>
 
-         <Link> <li className="font-semibold border p-2 transition-all rounded bg-lime-600 hover:bg-lime-700 text-white/90 text-sm flex items-center gap-2 "> My Ordered Foods  </li></Link>
+         <Link to='/ordered-foods'> <li className="font-semibold border p-2 transition-all rounded bg-lime-600 hover:bg-lime-700 text-white/90 text-sm flex items-center gap-2 "> My Ordered Foods  </li></Link>
          <li className="cursor-pointer transition-all p-1 rounded hover:underline" onClick={()=> signOut() }> Log out</li> 
 
         </ul>}

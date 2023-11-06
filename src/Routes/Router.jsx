@@ -11,6 +11,7 @@ import AllFoods from "../Pages/AllFoods";
 import FoodDetails from "../Components/FoodDetails";
 import OrderPage from "../Components/PurchasePage";
 import PurchasePage from "../Components/PurchasePage";
+import Cart from "../Components/Cart";
 
 
 
@@ -29,6 +30,7 @@ import PurchasePage from "../Components/PurchasePage";
         {path: '/all-foods', element: <AllFoods/>},
         {path: '/food-details/:id', element: <FoodDetails/>},
         {path: '/purchase-page/:id', element: <PurchasePage/>},
+        {path: '/ordered-foods', element: <Cart/>},
     ]}
   
   ]);
