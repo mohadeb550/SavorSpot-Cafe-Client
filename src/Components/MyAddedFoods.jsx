@@ -95,6 +95,7 @@ export default function MyAddedFoods() {
          
           </tbody>
         </table>
+        {!foods?.length && <p className="text-xl text-center mt-16 text-gray-500"> No items  </p>}
       </div>
     </div>
   </div>

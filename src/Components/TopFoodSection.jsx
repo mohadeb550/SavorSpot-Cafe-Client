@@ -1,17 +1,20 @@
-import { useParams } from "react-router-dom";
+
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import TopFoodCard from "./TopFoodCard";
+import { LineWave } from "react-loader-spinner";
+import { Link } from "react-router-dom";
 
 export default function TopFoodSection() {
 
 
-    // const { data: products, isLoading } = useQuery({
-    //   queryKey:['products'],
-    //   queryFn: async () => {
-    //    const data = await axios.get(`http://localhost:5000/products/${params.brand_name}`)
-    //     return data.data;
-    //   }
-    // })
+    const { data: topFoods, isLoading } = useQuery({
+      queryKey:['topFoods'],
+      queryFn: async () => {
+       const data = await axios.get(`http://localhost:5000/top-foods/`);
+        return data.data;
+      }
+    })
 
 
   return (
@@ -21,21 +24,29 @@ export default function TopFoodSection() {
         <h1 className="text-[26px] md:text-3xl lg:text-[40px] text-lime-600 font-bold text-center font-play " > Top Foods </h1>
         <p className="text-center text-sm md:text-lg max-w-[1040px] mx-auto text-gray-500 mt-0 md:mt-2 mb-10 md:mb-16 lg:mb-20 font-play" >Experience the extraordinary with our range of signature dishes meticulousl.  promising an unforgettable dining experience.</p>
       
-        {/* {isLoading &&  <span className="loading loading-dots text-orange-600/80 w-10 md:w-14 relative left-2/4"></span> }
+        {isLoading &&  <LineWave
+        height="100"
+        width="100"
+        color="#4fa94d"
+        ariaLabel="line-wave"
+        wrapperStyle={{}}
+        wrapperClass="w-20 md:w-24 relative left-2/4"
+        visible={true}
+        firstLineColor=""
+        middleLineColor=""
+        lastLineColor=""
+      /> }
 
-      { products && <section>
-
-      {
-        products.length? 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center  gap-7">
-            {products.map(product => <Product key={product._id} product={product} />)}
+      
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center gap-7  mb-8 md:mb-12">
+            {topFoods?.map(food => <TopFoodCard key={food._id} food={food} /> )}
         </div> 
-        :
-       <div className="flex items-center justify-center">
-         <img className="w-72 md:w-fit" src="/coming.jpg" />
-       </div>
-      }
-        </section>} */}
+
+       {topFoods?.length && 
+
+        <div className="flex justify-center mt-20">
+        <Link to={`/all-foods`} > <button className="bg-orange-600 py-[8px] px-10 text-white rounded font-semibold transition-all hover:bg-orange-700 text-sm md:text-base"> See All </button></Link>
+        </div>}
 
     </section>
   )

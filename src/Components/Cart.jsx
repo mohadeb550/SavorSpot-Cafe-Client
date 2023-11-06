@@ -43,7 +43,7 @@ export default function Cart () {
       updateQuantity({ changes: { ordered : newOrdered}, mainFoodId })
       .then(data => {
             if(data.data.modifiedCount > 0){
-              
+
               removeFood(id)
               .then(axData => {
                if(axData.data.deletedCount > 0){
@@ -146,6 +146,8 @@ export default function Cart () {
         
           </tbody>
         </table>
+
+        {!orderedFoods?.length && <p className="text-xl text-center mt-16 text-gray-500"> No items  </p>}
       </div>
     </div>
   </div>

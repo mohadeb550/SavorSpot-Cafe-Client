@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import Navbar from "../Components/Navbar";
+import Footer from "../Components/Footer";
 
 
 export default function Root() {
@@ -11,7 +12,7 @@ export default function Root() {
    <Toaster/>
    <Navbar/>
     <Outlet/>
-    
+    <Footer/>
     </section>
   )
 }

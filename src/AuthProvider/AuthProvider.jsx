@@ -58,12 +58,12 @@ export default function AuthProvider({children}) {
     if(authLoading ){return  <Oval
       height={50}
       width={50}
-      color="rgba(255, 85, 0, 0.925)"
+      color="rgb(101,163,13)"
       wrapperStyle={{}}
       wrapperClass="absolute top-[6%] md:top-[8%] left-2/4"
       visible={true}
       ariaLabel='oval-loading'
-      secondaryColor="rgba(255, 85, 0, 0.554)"
+      secondaryColor="rgb(140,183,77)"
       strokeWidth={2}
       strokeWidthSecondary={2}
     
