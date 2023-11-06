@@ -28,7 +28,7 @@ import PurchasePage from "../Components/PurchasePage";
         {path: '/update-food/:id', loader: ({params})=> fetch(`http://localhost:5000/single-food/${params.id}`) , element: <UpdateFood/>},
         {path: '/all-foods', element: <AllFoods/>},
         {path: '/food-details/:id', element: <FoodDetails/>},
-        {path: '/purchase-page/:id', loader: ({params})=> fetch(`http://localhost:5000/single-food/${params.id}`), element: <PurchasePage/>},
+        {path: '/purchase-page/:id', element: <PurchasePage/>},
     ]}
   
   ]);
