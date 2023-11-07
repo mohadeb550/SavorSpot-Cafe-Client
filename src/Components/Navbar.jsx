@@ -2,6 +2,7 @@
 import { Link, NavLink ,useNavigate, } from "react-router-dom";
 import toast from "react-hot-toast"
 import useAuth from "../Hooks/useAuth";
+import axios from "axios";
 
 
 
@@ -25,7 +26,13 @@ export default function Navbar() {
       logOut()
       .then(result => {
         toast.success('Logged Out !')
-        navigate('/');
+  
+         axios.get('http://localhost:5000/logout', {withCredentials : true})
+         .then(data => {
+          if(data.data.success){
+            navigate('/');  
+          }
+         })   
       })
       .catch(error => {
         toast.error('Something went wrong')

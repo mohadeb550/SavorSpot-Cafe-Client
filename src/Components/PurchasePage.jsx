@@ -26,7 +26,7 @@ const PurchasePage = () => {
     const { data: selectedFood, isLoading, refetch } = useQuery({
         queryKey: ['foodDetailOrderPage'],
         queryFn : async () => {
-           const data = await axios.get(`http://localhost:5000/single-food/${params.id}`)
+           const data = await axios.get(`http://localhost:5000/single-food/${params.id}`, {withCredentials: true})
            return data.data;
         }
     })

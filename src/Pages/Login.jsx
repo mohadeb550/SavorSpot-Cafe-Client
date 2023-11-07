@@ -4,6 +4,8 @@ import toast  from "react-hot-toast";
 import { FcGoogle } from 'react-icons/fc'
 import useAuth from "../Hooks/useAuth";
 import { Helmet } from "react-helmet";
+import axios from "axios";
+import { useMutation } from "@tanstack/react-query";
 
 
 
@@ -13,6 +15,14 @@ export default function Login() {
   const { loginUser , loginWithGoogle , currentUser } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
+
+
+  const { mutateAsync: generateJwt } = useMutation({
+    mutationKey: ['generateJwt'],
+    mutationFn: async (payload) => {
+      return axios.post(`http://localhost:5000/jwt`, payload, { withCredentials: true})
+    }
+  })
 
 
     const handleLogin = (e) => {
@@ -25,10 +35,15 @@ export default function Login() {
         loginUser(email, password)
         .then(result => {
 
-            e.target.reset();
             toast.success('Login Successful !',{duration:3000});
-            navigate(location.state? location.state : '/');
-        
+
+            generateJwt({email})
+            .then(data => {
+              if(data.data.success){
+                navigate(location.state? location.state : '/');
+              }
+            })
+
         })
         .catch(error =>  toast.error(error.message))
     }
@@ -37,7 +52,13 @@ export default function Login() {
       loginWithGoogle()
       .then(result => {
           toast.success('Login Successful!')
-            navigate(location.state? location.state : '/');
+      
+          generateJwt({email: result.user.email})
+          .then(data => {
+            if(data.data.success){
+              navigate(location.state? location.state : '/');
+            }
+          })
     
       })
       .catch(error => {
