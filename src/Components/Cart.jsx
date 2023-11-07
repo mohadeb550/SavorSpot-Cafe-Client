@@ -5,6 +5,7 @@ import useAxios from "../Hooks/useAxios";
 import { LineWave } from "react-loader-spinner";
 import toast from "react-hot-toast";
 import { Helmet } from "react-helmet";
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -12,13 +13,21 @@ export default function Cart () {
 
   const { currentUser } = useAuth();
   const axios = useAxios();
+  const navigate = useNavigate();
 
 
   const { data: orderedFoods , isLoading , refetch } = useQuery({
     queryKey: ['myOrderedFoods'],
     queryFn : async () => {
-      const data = await axios.get(`/ordered-foods?email=${currentUser.email}`);
-      return data.data;
+     
+      try{
+        const data = await axios.get(`/ordered-foods?email=${currentUser.email}`);
+        return data.data;
+       }catch(error){
+        if(error.response.status === 401){
+          navigate('/unauthorized')
+        }
+       }
     }
   })
 

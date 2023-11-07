@@ -2,7 +2,7 @@
 import {  useQuery } from "@tanstack/react-query";
 import useAuth from "../Hooks/useAuth";
 import useAxios from "../Hooks/useAxios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { LineWave } from "react-loader-spinner";
 import { Helmet } from "react-helmet";
 
@@ -12,13 +12,21 @@ export default function MyAddedFoods() {
 
   const { currentUser } = useAuth();
   const axios = useAxios();
+  const navigate = useNavigate();
 
 
   const { data: foods , isLoading} = useQuery({
     queryKey: ['myAddedFoods'],
     queryFn : async () => {
+
+     try{
       const data = await axios.get(`/my-added-foods?email=${currentUser.email}`);
       return data.data;
+     }catch(error){
+      if(error.response.status === 401){
+        navigate('/unauthorized')
+      }
+     }
     }
   })
 

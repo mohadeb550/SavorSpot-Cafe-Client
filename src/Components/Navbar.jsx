@@ -17,7 +17,7 @@ export default function Navbar() {
   const navLinks = <>
    <li ><NavLink className={({isActive})=> isActive? ' font-semibold bg-lime-600 text-white/95 px-3 py-[3px] rounded ': '' } to='/'> Home </NavLink></li>
    <li ><NavLink className={({isActive})=> isActive? ' font-semibold bg-lime-600 text-white/95 px-3 py-[3px] rounded ': '' } to='/all-foods'> All Food Items </NavLink></li>
-   <li ><NavLink className={({isActive})=> isActive? ' font-semibold bg-lime-600 text-white/95 px-3 py-[3px] rounded ': '' } to='/my-cart'> Blog </NavLink></li>
+   <li ><NavLink className={({isActive})=> isActive? ' font-semibold bg-lime-600 text-white/95 px-3 py-[3px] rounded ': '' } to='/blog'> Blog </NavLink></li>
    <li ><NavLink className={({isActive})=> isActive? ' font-semibold bg-lime-600 text-white/95 px-3 py-[3px] rounded ': '' } to='/sign-up'> Sign Up </NavLink></li>
   
   </>
