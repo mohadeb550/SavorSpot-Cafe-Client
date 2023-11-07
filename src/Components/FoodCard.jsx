@@ -6,9 +6,9 @@ export default function FoodCard({food }) {
  const {_id, foodName, price, images, quantity, category} = food;
 
   return (
-    <div className="block rounded w-full bg-white shadow-xl dark:bg-neutral-700 font-play">
+    <div className="block rounded w-full bg-white shadow-2xl dark:bg-neutral-700 font-play">
    <div className="p-6 pb-4 flex items-center justify-center">
-   <img className="rounded-lg border-b w-72 h-72 object-cover"  src={images[0].original || images[1].original} />
+   <img className="rounded-sm border-b w-[270px] h-[270px] object-cover"  src={images[0].original || images[1].original} />
    </div>
   
   <div className="p-6 pt-0">
@@ -22,9 +22,9 @@ export default function FoodCard({food }) {
     </p>
     <h4 className="text-xl font-semibold my-3 text-gray-500"> Price : <span className="text-orange-600"> {`${price}$`} </span> </h4>
 
-   <div className="flex gap-3 flex-grow">
+   <div className="flex gap-3 flex-grow justify-center">
 
-    <Link to={`/food-details/${_id}`} className="w-full"> <button className="bg-lime-600 py-[5px] px-8 text-white rounded font-semibold transition-all hover:bg-lime-700 text-sm md:text-base w-full"> See Details </button></Link>
+    <Link to={`/food-details/${_id}`} > <button className="bg-lime-600 py-[5px] px-24 text-white rounded font-semibold transition-all hover:bg-lime-700 text-sm md:text-base "> See Details </button></Link>
   
  
    </div>

@@ -24,7 +24,7 @@ export default function AddFood() {
         const form = e.target;
 
         const foodName = form.name.value;
-        const price = form.price.value;
+        const price = parseInt(form.price.value);
         const image1 = form.image1.value;
         const image2 = form.image2.value;
         const image3 = form.image3.value;

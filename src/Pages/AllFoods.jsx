@@ -18,13 +18,15 @@ export default function AllFoods() {
     const [ totalPage , setTotalPage ] = useState(0);
     const [ currentPage , setCurrentPage ] = useState(0);
     const [ pageArray, setPageArray ] = useState([])
+    const [ sortType, setSortType ] = useState('');
+    const [ selectedCategory , setSelectedCategory ] = useState('');
 
 
 
     const { data: allFoods, isLoading } = useQuery({
-      queryKey:['all-foods', searchName, currentPage],
+      queryKey:['all-foods', searchName, currentPage, sortType, selectedCategory],
       queryFn: async () => {
-       const data = await axios.get(`/all-foods?name=${searchName}&skip=${currentPage * foodPerPage}&size=${foodPerPage}`)
+       const data = await axios.get(`/all-foods?name=${searchName}&skip=${currentPage * foodPerPage}&size=${foodPerPage}&sort=${sortType}&category=${selectedCategory}`)
         return data.data;
       }
     })
@@ -49,6 +51,7 @@ export default function AllFoods() {
     const handleSearch = (e) => {
         setSearchName(e.target.value)
     }
+
 
   return (
     
@@ -75,6 +78,36 @@ export default function AllFoods() {
       /> }
 
         <section>
+
+          <div className="flex justify-end my-6 gap-3 px-5 md:px-0">
+          <select onChange={(e)=> setSortType(e.target.value)} className=" w-full max-w-xs outline p-2 outline-black/20 rounded-sm outline-1 ">
+              <option disabled selected> Sort by Price</option>
+               <option value=''> Random </option>
+               <option value='1'> Low to High</option>
+               <option value='-1'> High to Low</option>
+        </select>
+        
+        <select onChange={(e) => setSelectedCategory(e.target.value)} className=" w-full max-w-xs outline p-2 outline-black/20 rounded-sm outline-1 ">
+              <option disabled selected> Filter by Category</option>
+              <option value=''> None </option>
+              <option value='appetizers'> Appetizers </option>
+            <option value='salads'> Salads and Bowls </option>
+            <option value='sandwiches'> Sandwiches </option>
+            <option value='pizzas'> Pizzas</option>
+            <option value='burger'> Burger </option>
+            <option value='bbq'>BBQ and Grilled </option>
+            <option value='desserts'> Desserts </option>
+            <option value='beverages'> Beverages </option>
+            <option value='seasonal'>  Seasonal </option>
+            <option value='vegan'> Vegan Options </option>
+            <option value='breakfast'> Breakfast Classics </option>
+            <option value='street'> Street Food </option>
+            <option value='cheese'> Cheese and Charcuterie  </option>
+            <option value='soup'>Soup </option>
+            <option value='fusion'>International Fusion </option>
+            <option value='vegetarian'> Vegetarian </option>
+        </select>
+          </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center gap-7  mb-8 md:mb-12">
             {allFoods?.foods?.map(food => <FoodCard key={food._id} food={food} /> )}
