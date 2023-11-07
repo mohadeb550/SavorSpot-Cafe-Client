@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import toast  from "react-hot-toast";
 import { FcGoogle } from 'react-icons/fc'
 import useAuth from "../Hooks/useAuth";
+import { Helmet } from "react-helmet";
 
 
 
@@ -48,6 +49,10 @@ export default function Login() {
 
   return(
     <div className="hero h-[600px] pb-32 md:pb-0 md:h-[700px] max-w-[1300px] mx-auto px-4 bg-base-200 bg-[url('https://i.ibb.co/WDFtSWx/sincerely-media-4d-SXc-NTy-Xa-I-unsplash-1.jpg')]">
+
+    <Helmet>
+        <title> SavorSpotCafe / Login </title>
+      </Helmet>
     <div className="hero-content flex-col w-full">
 
       <div className="text-center lg:text-left">

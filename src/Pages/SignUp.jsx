@@ -7,6 +7,7 @@ import auth from "../config/firebase.config.js";
 import toast  from "react-hot-toast";
 import { FcGoogle } from 'react-icons/fc'
 import useAuth from "../Hooks/useAuth.js";
+import { Helmet } from "react-helmet";
 
 
 
@@ -65,6 +66,10 @@ export default function SignUp() {
 
   return (
     <div className="hero h-[700px] md:h-[720px] max-w-[1300px] mx-auto px-4 bg-[url('https://i.ibb.co/q0mx6HV/philipp-deus-a-ZTq83-ESIEg-unsplash.jpg')]">
+
+      <Helmet>
+        <title> SavorSpotCafe / Sign-up </title>
+      </Helmet>
     <div className="hero-content flex-col w-full gap-0">
 
     <div className="text-center lg:text-left pt-5 rounded-l-lg">

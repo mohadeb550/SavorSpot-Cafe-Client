@@ -6,6 +6,7 @@ import FoodCard from "../Components/FoodCard";
 import SearchBanner from "../Components/SearchBanner";
 import { useEffect, useState } from "react";
 import Pagination from "../Components/Pagination";
+import { Helmet } from "react-helmet";
 
 
 export default function AllFoods() {
@@ -53,6 +54,11 @@ export default function AllFoods() {
     
 
     <section className="my-2 md:my-6 lg:my-8 lg:px-0 max-w-[1300px] mx-auto px-5" >
+
+      <Helmet>
+        <title> SavorSpotCafe / All Foods </title>
+      </Helmet>
+
           <SearchBanner handleSearch={handleSearch} />
       
         {isLoading &&  <LineWave

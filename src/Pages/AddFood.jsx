@@ -3,6 +3,7 @@ import axios from "axios";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import useAuth from "../Hooks/useAuth";
+import { Helmet } from "react-helmet";
 
 
 
@@ -70,6 +71,12 @@ export default function AddFood() {
     
   return (
     <div className="hero bg-base-200 rounded pb-20 bg-[url('https://i.ibb.co/WDFtSWx/sincerely-media-4d-SXc-NTy-Xa-I-unsplash-1.jpg')] max-w-[1300px] mx-auto px-4">
+
+
+      <Helmet>
+        <title>  SavorSport Cafe / Add Food </title>
+      </Helmet>
+
     <div className="hero-content flex-col  w-full gap-0 lg:px-16">
 
     

@@ -12,6 +12,7 @@ import FoodDetails from "../Components/FoodDetails";
 import OrderPage from "../Components/PurchasePage";
 import PurchasePage from "../Components/PurchasePage";
 import Cart from "../Components/Cart";
+import PrivateRoute from "./PrivateRoute";
 
 
 
@@ -29,7 +30,7 @@ import Cart from "../Components/Cart";
         {path: '/update-food/:id', loader: ({params})=> fetch(`http://localhost:5000/single-food/${params.id}`) , element: <UpdateFood/>},
         {path: '/all-foods', element: <AllFoods/>},
         {path: '/food-details/:id', element: <FoodDetails/>},
-        {path: '/purchase-page/:id', element: <PurchasePage/>},
+        {path: '/purchase-page/:id', element: <PrivateRoute> <PurchasePage/> </PrivateRoute> },
         {path: '/ordered-foods', element: <Cart/>},
     ]}
   

@@ -4,6 +4,7 @@ import useAuth from "../Hooks/useAuth";
 import useAxios from "../Hooks/useAxios";
 import { Link } from "react-router-dom";
 import { LineWave } from "react-loader-spinner";
+import { Helmet } from "react-helmet";
 
 
 
@@ -24,6 +25,11 @@ export default function MyAddedFoods() {
 
   return (
    <section className="max-w-[1300px] mx-auto px-4 my-2 md:my-6 lg:my-10 mb-10"> 
+
+   
+      <Helmet>
+        <title>  SavorSport Cafe / My Added Foods </title>
+      </Helmet>
 
    <div className="flex justify-center items-center mb-6">
    <h2 className="text-2xl md:text-3xl font-extrabold text-lime-600 font-play"> Your Added Foods </h2>

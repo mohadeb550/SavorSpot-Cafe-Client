@@ -21,8 +21,8 @@ export default function TopFoodSection() {
     
 
     <section className="my-8 md:my-16 lg:my-24 px-1 lg:px-0" >
-        <h1 className="text-[26px] md:text-3xl lg:text-[40px] text-lime-600 font-bold text-center font-play " > Top Foods </h1>
-        <p className="text-center text-sm md:text-lg max-w-[1040px] mx-auto text-gray-500 mt-0 md:mt-2 mb-10 md:mb-16 lg:mb-20 font-play" >Experience the extraordinary with our range of signature dishes meticulousl.  promising an unforgettable dining experience.</p>
+        <h1 className="text-[26px] md:text-3xl lg:text-[40px] text-gray-500 font-bold text-center font-play " > Top Foods </h1>
+        <p className="text-center text-sm md:text-lg max-w-[1040px] mx-auto text-gray-400 mt-0 md:mt-2 mb-10 md:mb-16 lg:mb-20 font-play" >Experience the extraordinary with our range of signature dishes meticulousl.  promising an unforgettable dining experience.</p>
       
         {isLoading &&  <LineWave
         height="100"

@@ -1,7 +1,8 @@
-import { useContext } from "react"
-import { AuthContext } from "../AuthProvider/AuthProvider"
+
 import { Navigate, useLocation } from "react-router-dom";
 import toast  from "react-hot-toast";
+import { useContext } from "react";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 
 export default function PrivateRoute({children}) {

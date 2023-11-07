@@ -8,6 +8,7 @@ import axios from "axios";
 import Swal from 'sweetalert2'
 import toast from "react-hot-toast";
 import { LineWave } from "react-loader-spinner";
+import { Helmet } from "react-helmet";
 
 const PurchasePage = () => {
 
@@ -103,6 +104,12 @@ const PurchasePage = () => {
 
     return (
         <div className="py-14 px-4 md:px-6 2xl:px-20 2xl:container 2xl:mx-auto">
+
+
+        <Helmet>
+        <title>  SavorSport Cafe / Checkout / {foodName} </title>
+      </Helmet>
+
             <div className="flex justify-start item-start space-y-2 flex-col ">
                 <h1 className="text-3xl lg:text-4xl font-semibold leading-7 lg:leading-9  text-gray-800"> <span className="text-lime-600">Order </span>#13432</h1>
                 <p className="text-base font-medium leading-6 text-gray-600"> {currentDate} </p>

@@ -12,14 +12,13 @@ import "react-image-gallery/styles/css/image-gallery.css";
 import '../Custom CSS/imageGallery.css'
 import useAuth from "../Hooks/useAuth";
 import { LineWave } from "react-loader-spinner"
+import { Helmet } from "react-helmet"
 
 
 export default function FoodDetails() {
 
     const params = useParams();
 
-    const { currentUser } = useAuth()
-    const email = currentUser.email;
 
     const { data: food, isLoading } = useQuery({
         queryKey: ['foodDetail'],
@@ -42,12 +41,16 @@ export default function FoodDetails() {
         lastLineColor=""
       />}
 
-    const { _id, foodName, category, price, images, country, quantity, description, addedUserEmail, madeBy, ordered} = food;
+    const { _id, foodName, category, price, images, country, quantity, description, addedUserEmail, madeBy} = food;
 
    
 
   return (
     <section className="max-w-[1300px] mx-auto px-4 my-2 md:my-14 lg:my-20 mb-10">
+
+      <Helmet>
+        <title>  SavorSport Cafe / Details / {foodName} </title>
+      </Helmet>
        
        <div className="flex flex-col md:flex-row justify-around gap-4 md:gap-12 lg:gap-20">
 
