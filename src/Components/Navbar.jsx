@@ -27,16 +27,15 @@ export default function Navbar() {
       .then(result => {
         toast.success('Logged Out !')
   
-         axios.get('http://localhost:5000/logout', {withCredentials : true})
+         axios.get('https://savorspot-cafe-server.vercel.app/logout', {withCredentials : true})
          .then(data => {
           if(data.data.success){
             navigate('/');  
           }
-         })   
+         }) 
       })
       .catch(error => {
         toast.error('Something went wrong')
-
       })
     }
 
@@ -73,14 +72,14 @@ export default function Navbar() {
           {currentUser && <img tabIndex={0} src={currentUser?.photoURL || 'https://i.ibb.co/Ttgtb82/pngwing-com-15.png' } className="dropdown w-8 md:w-9 cursor-pointer rounded-full border border-lime-500 p-[1px]" />}
 
           {currentUser && 
-         <ul tabIndex={0} className={`dropdown-content p-2 shadow bg-base-100 rounded w-52 font-play `}>
-          {currentUser && <li className="font-semibold border p-2 rounded text-lime-600 flex items-center gap-2"> {currentUser?.displayName || 'User'}  <img tabIndex={0} src={currentUser?.photoURL || 'https://i.ibb.co/Ttgtb82/pngwing-com-15.png' } className="w-7 md:w-8 rounded-full" /></li>}
+         <ul tabIndex={0} className={`dropdown-content p-2 shadow bg-base-100 rounded w-52 font-play`}>
+          {currentUser && <li className="font-semibold border p-2 rounded text-black/60 flex items-center gap-2"> {currentUser?.displayName || 'User'}  <img tabIndex={0} src={currentUser?.photoURL || 'https://i.ibb.co/Ttgtb82/pngwing-com-15.png' } className="w-7 md:w-8 rounded-full" /></li>}
             
-         <Link to='/my-added-foods'> <li className="font-semibold border p-2 transition-all rounded bg-lime-600 hover:bg-lime-700 text-white/90 text-sm flex items-center gap-2 "> My Added Foods  </li></Link>
+         <Link to='/my-added-foods'> <li className="font-semibold border p-2 transition-all rounded  hover:bg-slate-500/10 text-lime-600/90 text-sm flex items-center gap-2 "> My Added Foods  </li></Link>
 
-         <Link to='/add-food'> <li className="font-semibold border p-2 transition-all rounded bg-lime-600 hover:bg-lime-700 text-white/90 text-sm flex items-center gap-2 "> Add Food  </li></Link>
+         <Link to='/add-food'> <li className="font-semibold border p-2 transition-all rounded  hover:bg-slate-500/10 text-lime-600/90 text-sm flex items-center gap-2 "> Add Food  </li></Link>
 
-         <Link to='/ordered-foods'> <li className="font-semibold border p-2 transition-all rounded bg-lime-600 hover:bg-lime-700 text-white/90 text-sm flex items-center gap-2 "> My Ordered Foods  </li></Link>
+         <Link to='/ordered-foods'> <li className="font-semibold border p-2 transition-all rounded hover:bg-slate-500/10 text-lime-600/90 text-sm flex items-center gap-2 "> My Ordered Foods  </li></Link>
          <li className="cursor-pointer transition-all p-1 rounded hover:underline" onClick={()=> signOut() }> Log out</li> 
 
         </ul>}

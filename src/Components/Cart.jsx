@@ -34,14 +34,14 @@ export default function Cart () {
   const { mutateAsync: removeFood } = useMutation({
     mutationKey : ['removeFood'],
     mutationFn : async (id) => {
-     return axios.delete(`http://localhost:5000/delete-food/${id}`);
+     return axios.delete(`https://savorspot-cafe-server.vercel.app/delete-food/${id}`);
     }
   })
 
   const { mutateAsync: updateQuantity } = useMutation({
     mutationKey: ['update-quantity-cart'],
     mutationFn: async ({changes, mainFoodId}) => {
-      return axios.patch(`http://localhost:5000/update-quantity/${mainFoodId}`, changes)
+      return axios.patch(`https://savorspot-cafe-server.vercel.app/update-quantity/${mainFoodId}`, changes)
     }
   })
 

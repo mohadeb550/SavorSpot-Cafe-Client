@@ -26,7 +26,7 @@ const PurchasePage = () => {
     const { data: selectedFood, isLoading, refetch } = useQuery({
         queryKey: ['foodDetailOrderPage'],
         queryFn : async () => {
-           const data = await axios.get(`http://localhost:5000/single-food/${params.id}`, {withCredentials: true})
+           const data = await axios.get(`https://savorspot-cafe-server.vercel.app/single-food/${params.id}`, {withCredentials: true})
            return data.data;
         }
     })
@@ -38,14 +38,14 @@ const PurchasePage = () => {
     const { mutateAsync: addOrder } = useMutation({
         mutationKey: ['add-order'],
         mutationFn: async (food) => {
-          return axios.put(`http://localhost:5000/order-food/${_id}`, food)
+          return axios.put(`https://savorspot-cafe-server.vercel.app/order-food/${_id}`, food)
         }
       })
 
       const { mutateAsync: updateQuantity } = useMutation({
         mutationKey: ['update-quantity'],
         mutationFn: async (food) => {
-          return axios.patch(`http://localhost:5000/update-quantity/${_id}`, food)
+          return axios.patch(`https://savorspot-cafe-server.vercel.app/update-quantity/${_id}`, food)
         }
       })
 

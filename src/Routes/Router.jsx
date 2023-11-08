@@ -27,7 +27,7 @@ import Blog from "../Pages/Blog";
         {path:'/login', element: <Login/>},
         {path: '/add-food', element: <AddFood/>},
         {path: '/my-added-foods', element: <MyAddedFoods/>},
-        {path: '/update-food/:id', loader: ({params})=> fetch(`http://localhost:5000/single-food/${params.id}`) , element: <UpdateFood/>},
+        {path: '/update-food/:id', loader: ({params})=> fetch(`https://savorspot-cafe-server.vercel.app/single-food/${params.id}`) , element: <UpdateFood/>},
         {path: '/all-foods', element: <AllFoods/>},
         {path: '/food-details/:id', element: <FoodDetails/>},
         {path: '/purchase-page/:id', element: <PrivateRoute> <PurchasePage/> </PrivateRoute> },

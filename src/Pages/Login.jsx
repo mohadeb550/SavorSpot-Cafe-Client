@@ -20,15 +20,15 @@ export default function Login() {
   const { mutateAsync: generateJwt } = useMutation({
     mutationKey: ['generateJwt'],
     mutationFn: async (payload) => {
-      return axios.post(`http://localhost:5000/jwt`, payload, { withCredentials: true})
+      return axios.post(`https://savorspot-cafe-server.vercel.app/jwt`, payload, { withCredentials: true})
     }
   })
-
-
+  
+  
   const { mutateAsync: saveUser } = useMutation({
     mutationKey: ['save-user'],
     mutationFn: async (updatedUser) => {
-      return axios.put(`http://localhost:5000/save-user/`, updatedUser)
+      return axios.put(`https://savorspot-cafe-server.vercel.app/save-user/`, updatedUser)
     }
   })
 
@@ -64,6 +64,7 @@ export default function Login() {
       
           generateJwt({email: result.user.email})
           .then(data => {
+            console.log(data.data)
             if(data.data.success){
               navigate(location.state? location.state : '/');
             }

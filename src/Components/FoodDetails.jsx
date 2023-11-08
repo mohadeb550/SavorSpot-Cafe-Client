@@ -23,7 +23,7 @@ export default function FoodDetails() {
     const { data: food, isLoading } = useQuery({
         queryKey: ['foodDetail'],
         queryFn : async () => {
-           const data = await axios.get(`http://localhost:5000/single-food/${params.id}`)
+           const data = await axios.get(`https://savorspot-cafe-server.vercel.app/single-food/${params.id}`)
            return data.data;
         }
     })

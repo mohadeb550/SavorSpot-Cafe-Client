@@ -23,7 +23,7 @@ export default function SignUp() {
     const { mutateAsync: saveUser } = useMutation({
       mutationKey: ['save-user'],
       mutationFn: async (updatedUser) => {
-        return axios.put(`http://localhost:5000/save-user/`, updatedUser)
+        return axios.put(`https://savorspot-cafe-server.vercel.app/save-user/`, updatedUser)
       }
     })
 

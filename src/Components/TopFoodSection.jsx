@@ -11,7 +11,7 @@ export default function TopFoodSection() {
     const { data: topFoods, isLoading } = useQuery({
       queryKey:['topFoods'],
       queryFn: async () => {
-       const data = await axios.get(`http://localhost:5000/top-foods/`);
+       const data = await axios.get(`https://savorspot-cafe-server.vercel.app/top-foods/`);
         return data.data;
       }
     })

@@ -16,7 +16,7 @@ export default function UpdateFood() {
     const { mutateAsync: updateRequest } = useMutation({
       mutationKey: ['update-product'],
       mutationFn: async (updatedFood) => {
-        return axios.put(`http://localhost:5000/update-food/${id}`, updatedFood)
+        return axios.put(`https://savorspot-cafe-server.vercel.app/update-food/${id}`, updatedFood)
       }
     })
 
@@ -25,7 +25,7 @@ export default function UpdateFood() {
         const form = e.target;
 
         const foodName = form.name.value;
-        const price = form.price.value;
+        const price = parseInt(form.price.value);
         const image1 = form.image1.value;
         const image2 = form.image2.value;
         const image3 = form.image3.value;
@@ -71,7 +71,7 @@ export default function UpdateFood() {
     <div className="hero-content flex-col  w-full gap-0 lg:px-16">
 
     
-        <h1 className="text-[27px] lg:text-[32px] text-white/90 font-bold text-center mb-4 font-play "> Update Product !</h1>
+        <h1 className="text-[27px] lg:text-[32px] text-white/90 font-bold text-center mb-4 font-play "> Update Food !</h1>
 
       <div className="rounded-lg flex-shrink-0 w-full  bg-base-100">
         <div className="p-7 lg:p-10">

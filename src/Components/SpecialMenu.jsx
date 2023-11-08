@@ -7,7 +7,7 @@ export default function SpecialMenu() {
     const { data: specialMenus, isLoading } = useQuery({
         queryKey:['specialMenu'],
         queryFn: async () => {
-         const data = await axios.get(`http://localhost:5000/special-menu`);
+         const data = await axios.get(`https://savorspot-cafe-server.vercel.app/special-menu`);
           return data.data;
         }
       })

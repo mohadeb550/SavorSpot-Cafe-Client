@@ -15,7 +15,7 @@ export default function AddFood() {
     const { mutateAsync: addRequest } = useMutation({
       mutationKey: ['add-product'],
       mutationFn: async (food) => {
-        return axios.post(`http://localhost:5000/add-food`, food)
+        return axios.post(`https://savorspot-cafe-server.vercel.app/add-food`, food)
       }
     })
 
@@ -80,7 +80,7 @@ export default function AddFood() {
     <div className="hero-content flex-col  w-full gap-0 lg:px-16">
 
     
-        <h1 className="text-[27px] lg:text-[32px] text-white/90 font-bold text-center mb-4 font-play "> Add New Product !</h1>
+        <h1 className="text-[27px] lg:text-[32px] text-white/90 font-bold text-center mb-4 font-play "> Add New Food !</h1>
 
       <div className="rounded-lg flex-shrink-0 w-full  bg-base-100">
         <div className="p-7 lg:p-10">
