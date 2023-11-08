@@ -8,6 +8,8 @@ import toast  from "react-hot-toast";
 import { FcGoogle } from 'react-icons/fc'
 import useAuth from "../Hooks/useAuth.js";
 import { Helmet } from "react-helmet";
+import axios from "axios";
+import { useMutation } from "@tanstack/react-query";
 
 
 
@@ -16,6 +18,15 @@ export default function SignUp() {
     const { createUser , loginWithGoogle } = useAuth();
     const [ error , setError ] = useState('');
     const navigate = useNavigate();
+
+
+    const { mutateAsync: saveUser } = useMutation({
+      mutationKey: ['save-user'],
+      mutationFn: async (updatedUser) => {
+        return axios.put(`http://localhost:5000/save-user/`, updatedUser)
+      }
+    })
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -41,9 +52,15 @@ export default function SignUp() {
         createUser(email, password)
         .then(result => {
            updateProfile(auth.currentUser, {displayName: name, photoURL: photo})
-            e.target.reset();
+            e.target.reset();  
+
+            saveUser({name: result.user.displayName, email : result.user.email, photoURL : result.user.photoURL })
+        .then(data => {
+          if(data.data.modifiedCount > 0 || data.data.upsertedCount > 0){
             navigate('/');
             toast.success('Successfully Account Created!',{duration: 3000});
+          }
+        })
         })
         .catch(error =>  {
             console.log(error)
@@ -53,10 +70,16 @@ export default function SignUp() {
 
 
     const googleLogin = () => {
+      
        loginWithGoogle()
         .then(result => {
-            navigate('/');
-            toast.success('Sign Up Successful!')
+          saveUser({name: result.user.displayName, email : result.user.email, photoURL : result.user.photoURL })
+          .then(data => {
+            if(data.data.modifiedCount > 0 || data.data.upsertedCount > 0){
+              navigate('/');
+              toast.success('Successfully Account Created!',{duration: 3000});
+            }
+          })
         })
         .catch(error => {
             toast.error('Something went wrong!')

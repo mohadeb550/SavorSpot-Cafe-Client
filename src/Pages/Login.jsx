@@ -25,6 +25,15 @@ export default function Login() {
   })
 
 
+  const { mutateAsync: saveUser } = useMutation({
+    mutationKey: ['save-user'],
+    mutationFn: async (updatedUser) => {
+      return axios.put(`http://localhost:5000/save-user/`, updatedUser)
+    }
+  })
+
+
+
     const handleLogin = (e) => {
         e.preventDefault();
 
@@ -57,6 +66,14 @@ export default function Login() {
           .then(data => {
             if(data.data.success){
               navigate(location.state? location.state : '/');
+            }
+          })
+
+          saveUser({name: result.user.displayName, email : result.user.email, photoURL : result.user.photoURL })
+          .then(data => {
+
+            if(data.data.modifiedCount > 0 || data.data.upsertedCount > 0 || data.data.matchedCount > 0){
+              console.log('userInfo saved successfully')
             }
           })
     
