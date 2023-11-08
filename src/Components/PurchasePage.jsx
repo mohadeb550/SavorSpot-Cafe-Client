@@ -67,7 +67,7 @@ const PurchasePage = () => {
             .then(data => {
                   if(data.data.modifiedCount > 0){
 
-                    addOrder({ mainFoodId,  foodName, category, price, images, madeBy , addedUserEmail, orderedEmail, ordered, buyingDate, userQuantity })
+                    addOrder({ mainFoodId,  foodName, category, price, images, madeBy , addedUserEmail, orderedEmail, ordered, buyingDate, userQuantity, previousQuantity:quantity })
                     .then(data => {
                         if(data.data.modifiedCount > 0 || data.data.upsertedCount > 0){
                             Swal.fire('Order Placed Successfully',

@@ -47,10 +47,11 @@ export default function Cart () {
 
 
 
-    const handleRemove = ({ id, mainFoodId, userQuantity, prevOrder }) => {
+    const handleRemove = ({ id, mainFoodId, userQuantity, prevOrder, previousQuantity }) => {
       const newOrdered = parseInt(prevOrder) - parseInt(userQuantity);
+      const newQuantity = parseInt(previousQuantity) + parseInt(userQuantity);
 
-      updateQuantity({ changes: { ordered : newOrdered}, mainFoodId })
+      updateQuantity({ changes: { ordered : newOrdered, quantity: newQuantity }, mainFoodId })
       .then(data => {
             if(data.data.modifiedCount > 0){
 
@@ -153,7 +154,7 @@ export default function Cart () {
               <td className="whitespace-nowrap px-6 py-4">
 
              
-              <button onClick={()=> handleRemove({ id: food._id, mainFoodId: food.mainFoodId, userQuantity: food.userQuantity, prevOrder : food.ordered}) } className="bg-red-500 p-1 px-2 md:py-2 md:px-4 text-white rounded font-semibold transition-all hover:bg-red-600 text-[12px] md:text-base"> 
+              <button onClick={()=> handleRemove({ id: food._id, mainFoodId: food.mainFoodId, userQuantity: food.userQuantity, prevOrder : food.ordered, previousQuantity : food.previousQuantity }) } className="bg-red-500 p-1 px-2 md:py-2 md:px-4 text-white rounded font-semibold transition-all hover:bg-red-600 text-[12px] md:text-base"> 
              Remove </button>
          
                </td>

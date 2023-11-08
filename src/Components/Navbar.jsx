@@ -70,7 +70,7 @@ export default function Navbar() {
         {!currentUser && <Link to='/login'><button className={`font-semibold  text-sm md:text-[16px] p-1 px-3 rounded bg-gray-50 hover:bg-gray-100 `}> Login </button></Link>}
         
         <div className="z-30 lg:w-10 rounded-full p-[2px] mr-2">
-          {currentUser && <img tabIndex={0} src={currentUser?.photoURL || 'https://i.ibb.co/Ttgtb82/pngwing-com-15.png' } className="dropdown w-9 md:w-9 cursor-pointer rounded-full border border-lime-500 p-[1px]" />}
+          {currentUser && <img tabIndex={0} src={currentUser?.photoURL || 'https://i.ibb.co/Ttgtb82/pngwing-com-15.png' } className="dropdown w-8 md:w-9 cursor-pointer rounded-full border border-lime-500 p-[1px]" />}
 
           {currentUser && 
          <ul tabIndex={0} className={`dropdown-content p-2 shadow bg-base-100 rounded w-52 font-play `}>
