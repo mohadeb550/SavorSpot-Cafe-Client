@@ -14,3 +14,6 @@ Live : [https://savorspot-cafe.web.app/](https://savorspot-cafe.web.app/)
 -  You can view foods sorted by price & filtered by category.
 -  You can select the desired quantity of food to place an order.
 -  User Registration and Profiles.
+-  
+<h5> Technology :</h5> <p>React, tailwind css, firebase , axios, tanstack query,
+node js, express js, mongodb</p>
