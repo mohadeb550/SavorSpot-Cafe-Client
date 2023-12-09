@@ -1,7 +1,7 @@
 SavorSpotCafe Live
 Live : [https://savorspot-cafe.web.app/](https://savorspot-cafe.web.app/)
 
-10 Feature of the project !
+Features of the project !
 
 
 -  You can add a new food from the 'Add Food' section.
